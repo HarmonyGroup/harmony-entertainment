@@ -1,7 +1,11 @@
-import { Inter } from "next/font/google";
+import { Inter, Syne } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import 'animate.css';
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
+const syne = Syne({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"] });
 
 export const metadata = {
   title: "Create Next App",
@@ -11,7 +15,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={syne.className}>
+        <div className="w-full fixed top-0 z-[9999]">
+          <Navbar />
+        </div>
+        <div className="">
+          {children}
+        </div>
+        <Footer />
+      </body>
     </html>
   );
 }
