@@ -200,7 +200,7 @@ const Home = () => {
 
       <div className="bg-black flex flex-col items-center px-4 md:px-10 py-28 relative">
         <h1 className="text-center text-white text-4xl font-bold">
-          Let's work <span className="text-[#EEA942]">together</span>
+          Let&apos;s work <span className="text-[#EEA942]">together</span>
         </h1>
         <p className="text-white text-center w-full max-w-md md:max-w-2xl mx-auto px-0 mt-6">
           We&apos;re always on the lookout for passionate partners and visionary
