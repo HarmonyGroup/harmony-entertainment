@@ -32,12 +32,12 @@ const Hero = () => {
   const buttonRef = useRef(null);
 
   useEffect(() => {
-    if (window) {
+    if (typeof window !== 'undefined') {
       const tl = gsap.timeline();
       tl.fromTo(h1Ref.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 3, ease: "power3.out" });
       tl.fromTo(buttonRef.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0, ease: "power3.out" });
     }
-  }, [h1Ref, buttonRef, window]);
+  }, [h1Ref, buttonRef]);
 
   return (
     <div className="relative flex flex-col items-center justify-center bg-black px-10 py-56 h-[100vh] lg:min-h-[100vh]">
