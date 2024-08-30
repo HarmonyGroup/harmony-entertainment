@@ -47,7 +47,7 @@ const Footer = () => {
         <Link target="_blank" href={"https://www.instagram.com/harmonyent.ng/"}>
           Instagram
         </Link>
-        |<Link href={"https://www.facebook.com"}>Facebook</Link>|
+        |<Link href={"https://facebook.com/harmonyent.ng/"}>Facebook</Link>|
         <Link target="_blank" href={"https://www.youtube.com/@HarmonyGroupTV"}>
           YouTube
         </Link>
