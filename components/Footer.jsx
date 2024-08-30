@@ -38,24 +38,22 @@ const Footer = () => {
   return (
     <div className="bg-black flex flex-col lg:flex-row items-center justify-between gap-4 px-4 lg:px-10 pb-10">
       <p className="text-gray-200 text-sm" ref={footerRef1}>
-        All Rights Reserved &copy; 2024 Harmony Group
+        All Rights Reserved &copy; 2024 Harmony Group NG
       </p>
       <div
         className="flex items-center gap-5 text-gray-200 text-sm"
         ref={footerRef2}
       >
-        <Link
-          target="_blank"
-          href={"https://www.instagram.com/harmonyent.ng/"}
-        >
+        <Link target="_blank" href={"https://www.instagram.com/harmonyent.ng/"}>
           Instagram
         </Link>
         |<Link href={"https://www.facebook.com"}>Facebook</Link>|
-        <Link
-          target="_blank"
-          href={"https://www.youtube.com/@HarmonyGroupTV"}
-        >
+        <Link target="_blank" href={"https://www.youtube.com/@HarmonyGroupTV"}>
           YouTube
+        </Link>
+        |
+        <Link target="_blank" href={"https://twitter.com/harmonyentng"}>
+          X
         </Link>
       </div>
     </div>

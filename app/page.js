@@ -200,7 +200,7 @@ const Home = () => {
                 </div>
               </div>
 
-              <div
+              {/* <div
                 className="bg-purple-100 flex gap-4 lg:gap-8 p-4 lg:p-6 rounded-xl cursor-pointer"
                 ref={(el) => (cardRefs.current[2] = el)}
                 onClick={() => setActiveCard(activeCard === "art" ? "" : "art")}
@@ -220,6 +220,31 @@ const Home = () => {
                     </p>
                   </div>
                 </div>
+              </div> */}
+
+              <div
+                className="bg-purple-100 flex gap-4 lg:gap-8 p-4 lg:p-6 rounded-xl cursor-pointer"
+                ref={(el) => (cardRefs.current[2] = el)}
+                onClick={() =>
+                  setActiveCard(activeCard === "fashion" ? "" : "fashion")
+                }
+              >
+                <h3 className="text-lg font-bold">03</h3>
+                <div className="w-full">
+                  <h1 className="text-lg font-bold">FASHION</h1>
+                  <div
+                    className={`overflow-hidden transition-[max-height] duration-700 ease-in-out ${
+                      activeCard === "fashion" ? "max-h-[500px]" : "max-h-0"
+                    }`}
+                  >
+                    <p className="font-light pt-2 lg:pt-4 lg:pb-2">
+                      We bring together designers, stylists, and fashion
+                      enthusiasts to showcase the latest trends, timeless
+                      classics, and everything in between. Come see, be seen,
+                      and explore the art of style.
+                    </p>
+                  </div>
+                </div>
               </div>
 
               <div
@@ -231,16 +256,17 @@ const Home = () => {
               >
                 <h3 className="text-lg font-bold">04</h3>
                 <div className="w-full">
-                  <h1 className="text-lg font-bold">CULTURE</h1>
+                  <h1 className="text-lg font-bold">CREATIVE ART & CULTURE</h1>
                   <div
                     className={`overflow-hidden transition-[max-height] duration-700 ease-in-out ${
                       activeCard === "culture" ? "max-h-[500px]" : "max-h-0"
                     }`}
                   >
                     <p className="font-light pt-2 lg:pt-4 lg:pb-2">
-                      Culture is the heartbeat of our events. We honor the past
-                      while inspiring the future, creating a space where culture
-                      is both preserved and reimagined.
+                      From live performances and interactive art installations
+                      to traditional craft displays and modern artistic
+                      interpretations, we bring together a diverse range of
+                      talents that highlight the beauty of our shared cultures.
                     </p>
                   </div>
                 </div>
@@ -344,9 +370,10 @@ const Home = () => {
           sponsors to help us create unforgettable experiences. Let&apos;s work
           together to bring your brand into the spotlight and make our next
           event the talk of the town.
-        </p>
+        </p> 
         <Link
-          target="_blank" href={"https://wa.me/+2348077286191/"}
+          target="_blank"
+          href={"https://wa.me/+2348182012345/"}
           className="flex items-center gap-6 text-white font-medium rounded-lg mt-6 overflow-hidden px-7 py-3"
           ref={heading6Ref}
         >
