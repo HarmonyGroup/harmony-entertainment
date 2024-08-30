@@ -157,9 +157,9 @@ const Home = () => {
                   setActiveCard(activeCard === "music" ? "" : "music")
                 }
               >
-                <h3 className="text-lg font-bold">01</h3>
+                <h3 className="text-[16px] lg:text-lg font-bold">01</h3>
                 <div className="w-full">
-                  <h3 className="text-lg font-bold">MUSIC</h3>
+                  <h3 className="text-[16px] lg:text-lg font-bold">MUSIC</h3>
                   <div
                     className={`overflow-hidden transition-[max-height] duration-700 ease-in-out ${
                       activeCard === "music" ? "max-h-[500px]" : "max-h-0"
@@ -182,9 +182,9 @@ const Home = () => {
                   setActiveCard(activeCard === "food" ? "" : "food")
                 }
               >
-                <h3 className="text-lg font-bold">02</h3>
+                <h3 className="text-[16px] lg:text-lg font-bold">02</h3>
                 <div className="w-full">
-                  <h1 className="text-lg font-bold">FOOD</h1>
+                  <h1 className="text-[16px] lg:text-lg font-bold">FOOD</h1>
                   <div
                     className={`overflow-hidden transition-[max-height] duration-700 ease-in-out ${
                       activeCard === "food" ? "max-h-[500px]" : "max-h-0"
@@ -229,9 +229,9 @@ const Home = () => {
                   setActiveCard(activeCard === "fashion" ? "" : "fashion")
                 }
               >
-                <h3 className="text-lg font-bold">03</h3>
+                <h3 className="text-[16px] lg:text-lg font-bold">03</h3>
                 <div className="w-full">
-                  <h1 className="text-lg font-bold">FASHION</h1>
+                  <h1 className="text-[16px] lg:text-lg font-bold">FASHION</h1>
                   <div
                     className={`overflow-hidden transition-[max-height] duration-700 ease-in-out ${
                       activeCard === "fashion" ? "max-h-[500px]" : "max-h-0"
@@ -254,9 +254,9 @@ const Home = () => {
                   setActiveCard(activeCard === "culture" ? "" : "culture")
                 }
               >
-                <h3 className="text-lg font-bold">04</h3>
+                <h3 className="text-[16px] lg:text-lg font-bold">04</h3>
                 <div className="w-full">
-                  <h1 className="text-lg font-bold">CREATIVE ART & CULTURE</h1>
+                  <h1 className="text-[16px] lg:text-lg font-bold">CREATIVE ART & CULTURE</h1>
                   <div
                     className={`overflow-hidden transition-[max-height] duration-700 ease-in-out ${
                       activeCard === "culture" ? "max-h-[500px]" : "max-h-0"
