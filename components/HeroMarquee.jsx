@@ -6,7 +6,7 @@ const HeroMarquee = () => {
     <div>
       <Marquee
         autoFill={true}
-        className="bg-white border-b-2 border-black space-x-10 py-10"
+        className="bg-white border-b-2 border-black space-x-10 py-7 lg:py-10"
       >
         <div className="flex items-center gap-3 px-10">
           <h1 className="text-black text-xl font-semibold">

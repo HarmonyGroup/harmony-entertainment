@@ -21,7 +21,11 @@ const Home = () => {
   const heading1Ref = useRef(null);
   const cardRefs = useRef([]);
   const heading2Ref = useRef(null);
-
+  const imageRefs = useRef([]);
+  const heading3Ref = useRef(null);
+  const heading4Ref = useRef(null);
+  const heading5Ref = useRef(null);
+  const heading6Ref = useRef(null);
 
   useEffect(() => {
     // Initialize ScrollTrigger
@@ -31,7 +35,11 @@ const Home = () => {
     ScrollTrigger?.create({
       trigger: heading1Ref.current,
       start: "top bottom",
-      animation: gsap.fromTo(heading1Ref.current, { x: -50, opacity: 0 }, { x: 0, opacity: 1, duration: 2 }),
+      animation: gsap.fromTo(
+        heading1Ref.current,
+        { x: -50, opacity: 0 },
+        { x: 0, opacity: 1, duration: 2 }
+      ),
     });
 
     // Animate the cards with delays when they enter the viewport
@@ -39,15 +47,92 @@ const Home = () => {
       ScrollTrigger.create({
         trigger: cardRef,
         start: "top bottom",
-        animation: gsap.fromTo(cardRef, { x: 80, opacity: 0 }, { x: 0, opacity: 1, delay: index * 0.4, duration: 1 }),
+        animation: gsap.fromTo(
+          cardRef,
+          { x: 80, opacity: 0 },
+          { x: 0, opacity: 1, delay: index * 0.4, duration: 1 }
+        ),
       });
     });
 
     ScrollTrigger?.create({
       trigger: heading2Ref.current,
       start: "top bottom",
-      animation: gsap.fromTo(heading2Ref.current, { x: -50, opacity: 0 }, { x: 0, opacity: 1, duration: 2 }),
-    })
+      animation: gsap.fromTo(
+        heading2Ref.current,
+        { x: -50, opacity: 0 },
+        { x: 0, opacity: 1, duration: 2 }
+      ),
+    });
+
+    // Animate the images when they enter the viewport
+    imageRefs.current.forEach((imageRef, index) => {
+      const isSecondRow = index >= 2;
+      const animation = gsap.fromTo(
+        imageRef,
+        {
+          x: isSecondRow
+            ? index % 2 === 0
+              ? 50
+              : -50
+            : index % 2 === 0
+            ? -50
+            : 50,
+          opacity: 0,
+        },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 2,
+        }
+      );
+
+      ScrollTrigger.create({
+        trigger: imageRef,
+        start: "top bottom",
+        animation,
+      });
+    });
+
+    ScrollTrigger?.create({
+      trigger: heading3Ref.current,
+      // start: "top bottom",
+      animation: gsap.fromTo(
+        heading3Ref.current,
+        { y: -50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 2 }
+      ),
+    });
+
+    ScrollTrigger?.create({
+      trigger: heading4Ref.current,
+      // start: "top bottom",
+      animation: gsap.fromTo(
+        heading4Ref.current,
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 2 }
+      ),
+    });
+
+    ScrollTrigger?.create({
+      trigger: heading5Ref.current,
+      // start: "top bottom",
+      animation: gsap.fromTo(
+        heading5Ref.current,
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, delay: 0.5, duration: 2 }
+      ),
+    });
+
+    ScrollTrigger?.create({
+      trigger: heading6Ref.current,
+      // start: "top bottom",
+      animation: gsap.fromTo(
+        heading6Ref.current,
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, delay: 1.2, duration: 2 }
+      ),
+    });
   }, []);
 
   return (
@@ -66,15 +151,15 @@ const Home = () => {
           <div>
             <div className="flex flex-col gap-6">
               <div
-                className="bg-orange-100 flex gap-4 lg:gap-8 px-6 py-6 rounded-xl cursor-pointer"
+                className="bg-orange-100 flex gap-4 lg:gap-8 p-4 lg:p-6 rounded-xl cursor-pointer"
                 ref={(el) => (cardRefs.current[0] = el)}
                 onClick={() =>
                   setActiveCard(activeCard === "music" ? "" : "music")
                 }
               >
-                <h3 className="text-lg font-semibold">01</h3>
+                <h3 className="text-lg font-bold">01</h3>
                 <div className="w-full">
-                  <h3 className="text-lg font-semibold">MUSIC</h3>
+                  <h3 className="text-lg font-bold">MUSIC</h3>
                   <div
                     className={`overflow-hidden transition-[max-height] duration-700 ease-in-out ${
                       activeCard === "music" ? "max-h-[500px]" : "max-h-0"
@@ -91,15 +176,15 @@ const Home = () => {
               </div>
 
               <div
-                className="bg-red-100 flex gap-4 lg:gap-8 px-6 py-6 rounded-xl cursor-pointer"
+                className="bg-red-100 flex gap-4 lg:gap-8 p-4 lg:p-6 rounded-xl cursor-pointer"
                 ref={(el) => (cardRefs.current[1] = el)}
                 onClick={() =>
                   setActiveCard(activeCard === "food" ? "" : "food")
                 }
               >
-                <h3 className="text-lg font-semibold">02</h3>
+                <h3 className="text-lg font-bold">02</h3>
                 <div className="w-full">
-                  <h1 className="text-lg font-semibold">FOOD</h1>
+                  <h1 className="text-lg font-bold">FOOD</h1>
                   <div
                     className={`overflow-hidden transition-[max-height] duration-700 ease-in-out ${
                       activeCard === "food" ? "max-h-[500px]" : "max-h-0"
@@ -116,13 +201,13 @@ const Home = () => {
               </div>
 
               <div
-                className="bg-purple-100 flex gap-4 lg:gap-8 px-6 py-6 rounded-xl cursor-pointer"
+                className="bg-purple-100 flex gap-4 lg:gap-8 p-4 lg:p-6 rounded-xl cursor-pointer"
                 ref={(el) => (cardRefs.current[2] = el)}
                 onClick={() => setActiveCard(activeCard === "art" ? "" : "art")}
               >
-                <h3 className="text-lg font-semibold">03</h3>
+                <h3 className="text-lg font-bold">03</h3>
                 <div className="w-full">
-                  <h1 className="text-lg font-semibold">ART</h1>
+                  <h1 className="text-lg font-bold">ART</h1>
                   <div
                     className={`overflow-hidden transition-[max-height] duration-700 ease-in-out ${
                       activeCard === "art" ? "max-h-[500px]" : "max-h-0"
@@ -138,15 +223,15 @@ const Home = () => {
               </div>
 
               <div
-                className="bg-emerald-100 flex gap-4 lg:gap-8 px-6 py-6 rounded-xl cursor-pointer"
+                className="bg-emerald-100 flex gap-4 lg:gap-8 p-4 lg:p-6 rounded-xl cursor-pointer"
                 ref={(el) => (cardRefs.current[3] = el)}
                 onClick={() =>
                   setActiveCard(activeCard === "culture" ? "" : "culture")
                 }
               >
-                <h3 className="text-lg font-semibold">04</h3>
+                <h3 className="text-lg font-bold">04</h3>
                 <div className="w-full">
-                  <h1 className="text-lg font-semibold">CULTURE</h1>
+                  <h1 className="text-lg font-bold">CULTURE</h1>
                   <div
                     className={`overflow-hidden transition-[max-height] duration-700 ease-in-out ${
                       activeCard === "culture" ? "max-h-[500px]" : "max-h-0"
@@ -173,9 +258,14 @@ const Home = () => {
       </div>
 
       <div className="px-4 md:px-10 pb-24 w-full">
-        <h1 className="text-2xl lg:text-4xl font-bold" ref={heading2Ref}>Featured Highlights</h1>
+        <h1 className="text-2xl lg:text-4xl font-bold" ref={heading2Ref}>
+          Featured Highlights
+        </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-5 w-full mt-12">
-          <div className="relative h-96 w-full rounded-2xl overflow-hidden group">
+          <div
+            className="relative h-96 w-full rounded-2xl overflow-hidden group"
+            ref={(el) => (imageRefs.current[0] = el)}
+          >
             <Image
               src={"/assets/ht-asset-6.jpg"}
               layout="fill"
@@ -183,7 +273,10 @@ const Home = () => {
               className="grayscale hover:grayscale-0 transition-all duration-500 ease-in-out cursor-pointer group-hover:scale-110"
             />
           </div>
-          <div className="relative h-96 w-full rounded-2xl overflow-hidden group md:row-start-2 md:col-start-1 md:col-span-2">
+          <div
+            className="relative h-96 w-full rounded-2xl overflow-hidden group md:row-start-2 md:col-start-1 md:col-span-2"
+            ref={(el) => (imageRefs.current[1] = el)}
+          >
             <Image
               src={"/assets/ht-asset-7.jpg"}
               layout="fill"
@@ -191,7 +284,10 @@ const Home = () => {
               className="grayscale hover:grayscale-0 transition-all duration-500 ease-in-out cursor-pointer group-hover:scale-110"
             />
           </div>
-          <div className="relative h-96 w-full rounded-2xl overflow-hidden group">
+          <div
+            className="relative h-96 w-full rounded-2xl overflow-hidden group"
+            ref={(el) => (imageRefs.current[2] = el)}
+          >
             <Image
               src={"/assets/ht-asset-3.jpg"}
               layout="fill"
@@ -199,7 +295,10 @@ const Home = () => {
               className="grayscale hover:grayscale-0 transition-all duration-500 ease-in-out cursor-pointer group-hover:scale-110"
             />
           </div>
-          <div className="relative h-96 w-full rounded-2xl overflow-hidden group md:row-start-1 md:col-start-2 md:col-span-2">
+          <div
+            className="relative h-96 w-full rounded-2xl overflow-hidden group md:row-start-1 md:col-start-2 md:col-span-2"
+            ref={(el) => (imageRefs.current[3] = el)}
+          >
             <Image
               src={"/assets/ht-asset-5.jpg"}
               layout="fill"
@@ -210,19 +309,14 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="px-4 md:px-10 pb-28 flex flex-col items-center justify-center gap-14">
+      <div
+        className="px-4 md:px-10 pb-28 flex flex-col items-center justify-center gap-14"
+        ref={heading3Ref}
+      >
         <div className="relative">
           <h1 className="text-2xl lg:text-4xl font-bold">
             2023 Festival Recap
           </h1>
-
-          <Image
-            src={"/assets/ornament-1.png"}
-            className="absolute rotate-[20deg] -right-10 -top-6"
-            height={100}
-            width={100}
-            alt="ornament"
-          />
         </div>
         <iframe
           className="w-full max-w-3xl h-[27rem] rounded-2xl -mt-2"
@@ -236,10 +330,16 @@ const Home = () => {
       </div>
 
       <div className="bg-black flex flex-col items-center px-4 md:px-10 py-28 relative">
-        <h1 className="text-center text-white text-4xl font-bold">
+        <h1
+          className="text-center text-white text-4xl font-bold"
+          ref={heading4Ref}
+        >
           Let&apos;s work <span className="text-[#EEA942]">together</span>
         </h1>
-        <p className="text-white text-center w-full max-w-md md:max-w-2xl mx-auto px-0 mt-6">
+        <p
+          className="text-white text-center w-full max-w-md md:max-w-2xl mx-auto px-0 mt-6"
+          ref={heading5Ref}
+        >
           We&apos;re always on the lookout for passionate partners and visionary
           sponsors to help us create unforgettable experiences. Let&apos;s work
           together to bring your brand into the spotlight and make our next
@@ -248,6 +348,7 @@ const Home = () => {
         <Link
           href={"/"}
           className="flex items-center gap-6 text-white font-medium rounded-lg mt-6 overflow-hidden px-7 py-3"
+          ref={heading6Ref}
         >
           Talk to us
           <GoArrowRight
@@ -256,7 +357,6 @@ const Home = () => {
           />
         </Link>
       </div>
-
 
       {/* <div className="bg-black flex items-center justify-between px-10 py-10 my-32">
         <h1 className="text-white text-2xl font-medium">Want to be <span className="cursive text-4xl">sponsor</span> <br /> our next event</h1>
