@@ -3,7 +3,9 @@
 import Hero from "@/components/Hero";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { GoArrowRight } from "react-icons/go";
 import { AiFillInstagram, AiFillTikTok } from "react-icons/ai";
 import { BsFacebook, BsYoutube } from "react-icons/bs";
@@ -15,7 +17,38 @@ import { IoPlay } from "react-icons/io5";
 import Marquee from "react-fast-marquee";
 
 const Home = () => {
-  const [activeCard, setActiveCard] = useState("music");
+  const [activeCard, setActiveCard] = useState("");
+  const heading1Ref = useRef(null);
+  const cardRefs = useRef([]);
+  const heading2Ref = useRef(null);
+
+
+  useEffect(() => {
+    // Initialize ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Animate the heading when it enters the viewport
+    ScrollTrigger?.create({
+      trigger: heading1Ref.current,
+      start: "top bottom",
+      animation: gsap.fromTo(heading1Ref.current, { x: -50, opacity: 0 }, { x: 0, opacity: 1, duration: 2 }),
+    });
+
+    // Animate the cards with delays when they enter the viewport
+    cardRefs.current.forEach((cardRef, index) => {
+      ScrollTrigger.create({
+        trigger: cardRef,
+        start: "top bottom",
+        animation: gsap.fromTo(cardRef, { x: 80, opacity: 0 }, { x: 0, opacity: 1, delay: index * 0.4, duration: 1 }),
+      });
+    });
+
+    ScrollTrigger?.create({
+      trigger: heading2Ref.current,
+      start: "top bottom",
+      animation: gsap.fromTo(heading2Ref.current, { x: -50, opacity: 0 }, { x: 0, opacity: 1, duration: 2 }),
+    })
+  }, []);
 
   return (
     <>
@@ -26,7 +59,7 @@ const Home = () => {
       <div className="relative px-4 md:px-10 pt-24 pb-28 lg:pt-28 lg:pb-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
-            <h1 className="text-2xl lg:text-4xl font-bold">
+            <h1 className="text-2xl lg:text-4xl font-bold" ref={heading1Ref}>
               Connecting You to <br /> the Heart of Culture
             </h1>
           </div>
@@ -34,6 +67,7 @@ const Home = () => {
             <div className="flex flex-col gap-6">
               <div
                 className="bg-orange-100 flex gap-4 lg:gap-8 px-6 py-6 rounded-xl cursor-pointer"
+                ref={(el) => (cardRefs.current[0] = el)}
                 onClick={() =>
                   setActiveCard(activeCard === "music" ? "" : "music")
                 }
@@ -58,6 +92,7 @@ const Home = () => {
 
               <div
                 className="bg-red-100 flex gap-4 lg:gap-8 px-6 py-6 rounded-xl cursor-pointer"
+                ref={(el) => (cardRefs.current[1] = el)}
                 onClick={() =>
                   setActiveCard(activeCard === "food" ? "" : "food")
                 }
@@ -82,6 +117,7 @@ const Home = () => {
 
               <div
                 className="bg-purple-100 flex gap-4 lg:gap-8 px-6 py-6 rounded-xl cursor-pointer"
+                ref={(el) => (cardRefs.current[2] = el)}
                 onClick={() => setActiveCard(activeCard === "art" ? "" : "art")}
               >
                 <h3 className="text-lg font-semibold">03</h3>
@@ -103,6 +139,7 @@ const Home = () => {
 
               <div
                 className="bg-emerald-100 flex gap-4 lg:gap-8 px-6 py-6 rounded-xl cursor-pointer"
+                ref={(el) => (cardRefs.current[3] = el)}
                 onClick={() =>
                   setActiveCard(activeCard === "culture" ? "" : "culture")
                 }
@@ -136,7 +173,7 @@ const Home = () => {
       </div>
 
       <div className="px-4 md:px-10 pb-24 w-full">
-        <h1 className="text-2xl lg:text-4xl font-bold">Featured Highlights</h1>
+        <h1 className="text-2xl lg:text-4xl font-bold" ref={heading2Ref}>Featured Highlights</h1>
         <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-5 w-full mt-12">
           <div className="relative h-96 w-full rounded-2xl overflow-hidden group">
             <Image
@@ -220,56 +257,6 @@ const Home = () => {
         </Link>
       </div>
 
-      {/* <Marquee className="mt-8">
-        <div className="h-64 w-64 bg-black rounded-3xl relative overflow-hidden mx-5">
-          <Image
-            src={"/assets/ht-asset-3.jpg"}
-            layout="fill"
-            objectFit="cover"
-            className="grayscale"
-          />
-        </div>
-        <div className="h-64 w-64 bg-black rounded-3xl relative overflow-hidden mx-5 mt-40">
-          <Image
-            src={"/assets/ht-asset-3.jpg"}
-            layout="fill"
-            objectFit="cover"
-            className="grayscale"
-          />
-        </div>
-        <div className="h-64 w-64 bg-black rounded-3xl relative overflow-hidden mx-5">
-          <Image
-            src={"/assets/ht-asset-3.jpg"}
-            layout="fill"
-            objectFit="cover"
-            className="grayscale"
-          />
-        </div>
-        <div className="h-64 w-64 bg-black rounded-3xl relative overflow-hidden mx-5 mt-40">
-          <Image
-            src={"/assets/ht-asset-3.jpg"}
-            layout="fill"
-            objectFit="cover"
-            className="grayscale"
-          />
-        </div>
-        <div className="h-64 w-64 bg-black rounded-3xl relative overflow-hidden mx-5">
-          <Image
-            src={"/assets/ht-asset-3.jpg"}
-            layout="fill"
-            objectFit="cover"
-            className="grayscale"
-          />
-        </div>
-        <div className="h-64 w-64 bg-black rounded-3xl relative overflow-hidden mx-5 mt-40">
-          <Image
-            src={"/assets/ht-asset-3.jpg"}
-            layout="fill"
-            objectFit="cover"
-            className="grayscale"
-          />
-        </div>
-      </Marquee> */}
 
       {/* <div className="bg-black flex items-center justify-between px-10 py-10 my-32">
         <h1 className="text-white text-2xl font-medium">Want to be <span className="cursive text-4xl">sponsor</span> <br /> our next event</h1>
