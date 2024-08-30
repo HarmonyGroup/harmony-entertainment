@@ -17,7 +17,7 @@ import { IoPlay } from "react-icons/io5";
 import Marquee from "react-fast-marquee";
 
 const Home = () => {
-  const [activeCard, setActiveCard] = useState("");
+  const [activeCard, setActiveCard] = useState("music");
   const heading1Ref = useRef(null);
   const cardRefs = useRef([]);
   const heading2Ref = useRef(null);
