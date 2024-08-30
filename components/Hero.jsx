@@ -47,7 +47,7 @@ const Hero = () => {
         objectFit="cover"
         className=""
       />
-      <div class="absolute inset-0 bg-gradient-to-t from-black to-black/30"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-black/60"></div>
       <h1 className="text-white text-4xl lg:text-7xl text-center font-bold leading-normal lg:leading-[5.2rem] z-50" ref={h1Ref}>
         <span className="text-[#EEA942] cursive lowercase">CELEBRATING </span>{" "}
         MUSIC, <br /> ART, AND CULTURE

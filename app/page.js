@@ -250,7 +250,7 @@ const Home = () => {
         </div>
         <Image
           src={"/assets/ornament-2.png"}
-          className="absolute -left-5 top-1/2 transform -translate-y-1/2 mt-4"
+          className="absolute -left-5 top-1/2 transform -translate-y-1/2 mt-4 hidden lg:block"
           alt="ornament"
           height={130}
           width={130}
@@ -346,7 +346,7 @@ const Home = () => {
           event the talk of the town.
         </p>
         <Link
-          href={"/"}
+          target="_blank" href={"https://wa.me/+2348077286191/"}
           className="flex items-center gap-6 text-white font-medium rounded-lg mt-6 overflow-hidden px-7 py-3"
           ref={heading6Ref}
         >
