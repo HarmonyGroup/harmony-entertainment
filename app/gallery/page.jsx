@@ -39,7 +39,7 @@ const GalleryPage = () => {
               moments of our past festivals and concerts. Each image captures
               the energy, creativity, and joy that define our events—where
               music, art, and culture come alive. Explore the memories, feel the
-              vibes, and get inspired for what's to come in our future events.
+              vibes, and get inspired for what&apos;s to come in our future events.
             </p>
           </div>
         </div>
