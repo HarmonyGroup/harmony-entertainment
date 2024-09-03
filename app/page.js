@@ -15,6 +15,8 @@ import NewsCard from "@/components/NewsCard";
 import HeroMarquee from "@/components/HeroMarquee";
 import { IoPlay } from "react-icons/io5";
 import Marquee from "react-fast-marquee";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const Home = () => {
   const [activeCard, setActiveCard] = useState("music");
@@ -130,13 +132,17 @@ const Home = () => {
       animation: gsap.fromTo(
         heading6Ref.current,
         { y: 50, opacity: 0 },
-        { y: 0, opacity: 1, delay: 1.2, duration: 2 }
+        { y: 0, opacity: 1, delay: 0.5, duration: 2 }
       ),
     });
   }, []);
 
   return (
     <>
+      <div className="w-full fixed top-0 z-[9999]">
+        <Navbar />
+      </div>
+
       <Hero />
 
       <HeroMarquee />
@@ -256,7 +262,9 @@ const Home = () => {
               >
                 <h3 className="text-[16px] lg:text-lg font-bold">04</h3>
                 <div className="w-full">
-                  <h1 className="text-[16px] lg:text-lg font-bold">CREATIVE ART & CULTURE</h1>
+                  <h1 className="text-[16px] lg:text-lg font-bold">
+                    CREATIVE ART & CULTURE
+                  </h1>
                   <div
                     className={`overflow-hidden transition-[max-height] duration-700 ease-in-out ${
                       activeCard === "culture" ? "max-h-[500px]" : "max-h-0"
@@ -370,7 +378,7 @@ const Home = () => {
           sponsors to help us create unforgettable experiences. Let&apos;s work
           together to bring your brand into the spotlight and make our next
           event the talk of the town.
-        </p> 
+        </p>
         <Link
           target="_blank"
           href={"https://wa.me/+2348182012345/"}
@@ -384,6 +392,8 @@ const Home = () => {
           />
         </Link>
       </div>
+
+      <Footer />
 
       {/* <div className="bg-black flex items-center justify-between px-10 py-10 my-32">
         <h1 className="text-white text-2xl font-medium">Want to be <span className="cursive text-4xl">sponsor</span> <br /> our next event</h1>

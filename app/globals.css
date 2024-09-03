@@ -5,6 +5,12 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Playwrite+HR:wght@100..400&display=swap');
 
+.glassmorphism {
+  background: rgba(0, 0, 0, 0.4); /* Light background with transparency */
+  backdrop-filter: blur(10px); /* Blurring the background */
+  -webkit-backdrop-filter: blur(10px); /* For Safari support */
+}
+
 .cursive {
     font-family: "Playwrite HR", cursive;
   font-optical-sizing: auto;

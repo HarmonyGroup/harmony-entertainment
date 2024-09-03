@@ -41,6 +41,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
+import Image from "next/image";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -76,24 +77,33 @@ const Navbar = () => {
 
   return (
     <div
-      className={`lg:flex items-center justify-center py-8 z-[9999] hidden`}
+      className={`flex items-center justify-between py-4 z-[9999] ${
+        isScrolled
+          ? "glassmorphism"
+          : "bg-transparent border-transparent"
+      }`}
       ref={navbarRef}
     >
+      <Link href={"/"}>
+        <Image
+          src={"/assets/hcf-logo.png"}
+          alt="logo"
+          height={130}
+          width={130}
+          className="scale-75 lg:scale-110"
+        />
+      </Link>
       <div
-        className={`space-x-24 border-[2px] rounded-full px-12 py-3.5 z-[9999] transition-all duration-500 ${
-          isScrolled
-            ? "bg-black border-white"
-            : "bg-transparent border-transparent"
-        }`}
+        className={`space-x-24 px-12 z-[9999] transition-all duration-500 hidden lg:block`}
       >
-        <Link href="/" className="text-white text-lg font-medium">
+        <Link href="/" className="text-white text-[17px] font-semibold">
           Home
         </Link>
-        <Link href="/" className="text-white text-lg font-medium">
-          Events
-        </Link>
-        <Link href="/" className="text-white text-lg font-medium">
+        <Link href="/gallery" className="text-white text-[17px] font-semibold">
           Gallery
+        </Link>
+        <Link href="/" className="text-white text-[17px] font-semibold">
+          Contact
         </Link>
       </div>
     </div>
