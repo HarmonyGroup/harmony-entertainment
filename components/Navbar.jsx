@@ -77,7 +77,7 @@ const Navbar = () => {
 
   return (
     <div
-      className={`flex items-center justify-between py-4 z-[9999] ${
+      className={`flex items-center justify-between py-2 lg:py-4 z-[9999] ${
         isScrolled
           ? "glassmorphism"
           : "bg-transparent border-transparent"
