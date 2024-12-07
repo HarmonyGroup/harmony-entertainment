@@ -364,8 +364,9 @@ const Home = () => {
       </div>
 
       <div className="bg-black flex flex-col items-center px-4 md:px-10 py-28 relative">
+        <Image alt="Harmony Entertainment" src={"/assets/cropped-logo.jpg"} height={130} width={130} />
         <h1
-          className="text-center text-white text-4xl font-bold"
+          className="text-center text-white text-4xl font-bold mt-9"
           ref={heading4Ref}
         >
           Let&apos;s work <span className="text-[#EEA942]">together</span>
